@@ -2,13 +2,20 @@
 
 {% load static %}
 {% block content%}
-    <h1> Информация о фильмах</h1>
-    {% if films%}
-        {% for film in films%}
-            <h2>Название: {{film.name}} </h2>
-            <p>Описание: {{film.description}} </p>
-            <p>Отзыв: {{film.comment}} </p>
-            <br>
-        {% endfor %}
-    {%endif%}
+    <div class="container mt-5">
+        <h1 class="mb-4">Информация о фильмах</h1>
+        {% if films %}
+            <div class="list-group">
+                {% for film in films %}
+                    <div class="list-group-item mb-3">
+                        <h5 class="mb-2">Название: {{ film.name }}</h5>
+                        <p class="mb-1"><strong>Описание:</strong> {{ film.description }}</p>
+                        <p class="mb-0"><strong>Отзыв:</strong> {{ film.comment }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-muted">Нет доступной информации о фильмах.</p>
+        {% endif %}
+    </div>
 {% endblock%}
