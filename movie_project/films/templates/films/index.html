@@ -2,5 +2,13 @@
 
 {% load static %}
 {% block content%}
-    <h1> Тут будут фильмы</h1>
+    <h1> Информация о фильмах</h1>
+    {% if films%}
+        {% for film in films%}
+            <h2>Название: {{film.name}} </h2>
+            <p>Описание: {{film.description}} </p>
+            <p>Отзыв: {{film.comment}} </p>
+            <br>
+        {% endfor %}
+    {%endif%}
 {% endblock%}
